@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --safe-top: env(safe-area-inset-top);
+    --safe-bottom: env(safe-area-inset-bottom);
+    --safe-left: env(safe-area-inset-left);
+    --safe-right: env(safe-area-inset-right);
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overscroll-behavior: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Arabic RTL support */
+  [lang="ar"], [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+    font-family: var(--font-amiri), serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-sm border border-white/50 shadow-soft;
+  }
+
+  .btn-primary {
+    @apply bg-cream-400 hover:bg-cream-500 text-white font-body font-medium
+           py-3 px-6 rounded-2xl transition-all duration-200 active:scale-95
+           shadow-sm;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent border border-cream-200 text-ink-700 font-body font-medium
+           py-3 px-6 rounded-2xl transition-all duration-200 active:scale-95
+           hover:bg-cream-100;
+  }
+
+  .input-field {
+    @apply w-full bg-cream-50 border border-cream-200 rounded-2xl px-4 py-3
+           text-ink-800 placeholder-cream-400 font-body text-sm
+           focus:outline-none focus:ring-2 focus:ring-cream-300 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  .card {
+    @apply bg-white rounded-3xl p-5 shadow-card;
+  }
+
+  .page-container {
+    @apply max-w-md mx-auto px-4 pb-28;
+  }
+
+  /* Bottom nav safe area */
+  .bottom-nav {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Status bar area */
+  .status-bar-pad {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+}
+
+@layer utilities {
+  .text-arabic {
+    font-family: var(--font-amiri), serif;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+
+  .text-display {
+    font-family: var(--font-cormorant), Georgia, serif;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* PWA standalone mode adjustments */
+@media all and (display-mode: standalone) {
+  body {
+    user-select: none;
+  }
+  input, textarea {
+    user-select: text;
+  }
+}
+
+/* Dark mode */
+.dark body {
+  @apply bg-ink-900 text-cream-100;
+}
+
+/* Smooth transitions */
+* {
+  -webkit-transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 0;
+}
+
+/* Prevent iOS bounce but keep scrolling */
+.no-bounce {
+  overscroll-behavior-y: contain;
+}
+
+/* ── Animation keyframes used across app ── */
+@keyframes shimmer {
+  0%, 100% { opacity: 0.3; }
+  50%       { opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}

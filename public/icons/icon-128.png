@@ -1,0 +1,22 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg128" cx="40%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#e8d5bb"/>
+      <stop offset="60%" stop-color="#c4956a"/>
+      <stop offset="100%" stop-color="#a8785a"/>
+    </radialGradient>
+    <radialGradient id="sh128" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="28.16" fill="url(#bg128)"/>
+  <rect width="128" height="128" rx="28.16" fill="url(#sh128)"/>
+  <circle cx="64.0" cy="64.0" r="48.64" fill="none" stroke="#fdfaf6" stroke-opacity="0.18" stroke-width="1.408"/>
+  <text x="64.0" y="76.544" text-anchor="middle"
+    font-family="serif" font-size="35.84" font-weight="bold"
+    fill="#fdfaf6" fill-opacity="0.95" letter-spacing="1">&#x634;&#x647;&#x62F;</text>
+  <circle cx="48.64" cy="99.84" r="1.792" fill="#fdfaf6" fill-opacity="0.4"/>
+  <circle cx="64.0" cy="102.4" r="1.4336000000000002" fill="#fdfaf6" fill-opacity="0.3"/>
+  <circle cx="79.36" cy="99.84" r="1.792" fill="#fdfaf6" fill-opacity="0.4"/>
+</svg>
